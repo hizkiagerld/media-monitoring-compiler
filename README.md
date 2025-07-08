@@ -1,23 +1,23 @@
 # Monthly Media Monitoring Report Compiler
 
-Ini adalah skrip Python untuk secara otomatis mengompilasi laporan media monitoring bulanan dari beberapa file Word menjadi satu file Excel yang rapi dengan beberapa kategori sheet.
+This is a Python script to automatically compile monthly media monitoring reports from multiple Word files into one neat Excel file with multiple sheet categories.
 
-## Fitur
+## Features
 
-- Secara otomatis mencari semua file `.docx` di dalam folder dan sub-folder.
-- Mengekstrak data berita dari tabel di dalam file Word.
-- Menggabungkan beberapa kategori berita menjadi satu kategori utama.
-- Menghasilkan satu file Excel dengan sheet terpisah untuk setiap kategori berita.
-- Memberi format pada header (warna kuning, rata tengah) dan sel (wrap text).
-- Mengatur lebar kolom secara otomatis.
+- Automatically search for all `.docx` files inside folders and sub-folders.
+- Extracts news data from tables inside Word files.
+- Combines multiple news categories into one main category.
+- Generates a single Excel file with separate sheets for each news category.
+- Format headers (yellow, center-aligned) and cells (wrap text).
+- Set column widths automatically.
 
-## Cara Penggunaan
+## How to use
 
-1.  Pastikan semua pustaka yang dibutuhkan sudah terpasang: `pip install pandas python-docx xlsxwriter`
-2.  Buka file `monthly_compiler.py`.
-3.  Ubah path di variabel `root_folder_path` agar menunjuk ke folder utama bulan yang ingin diproses.
-4.  Jalankan skrip: `python monthly_compiler.py`
+1.  Make sure all required libraries are installed: `pip install pandas python-docx xlsxwriter`
+2.  Open the file `monthly_compiler.py`.
+3.  Change the path in the `root_folder_path` variable to point to the main folder of the month you want to process.
+4.  Run the script: `python monthly_compiler.py`
 
 ## Acknowledgements
 
-Skrip ini dikembangkan oleh Hizkia Gerald Garibaldi dengan bantuan dan bimbingan dari asisten AI Google, Gemini.
+This script was developed by Hizkia Gerald Garibaldi with help and guidance from Google's AI assistant, Gemini.
