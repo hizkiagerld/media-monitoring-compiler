@@ -7,8 +7,8 @@ Monthly Media Monitoring Report Compiler
 * Email       : hgeraldgaribaldi@gmail.com
 * Version     : 1.0.0
 * Last Update : 8 Juli 2025]
-* Description : Skrip untuk mengompilasi laporan media monitoring bulanan
-* dari file Word ke dalam satu file Excel.
+* Description : Script to compile media monitoring daily reports from 
+* Word file into one monthly report Excel File.
 *
 * Developed with guidance and assistance from Google's AI, Gemini.
 *
@@ -132,14 +132,13 @@ def extract_data_from_docx(docx_path):
     return pd.DataFrame(data)
 
 # ==============================================================================
-# LOGIKA UTAMA
-# Versi Final
+# MAIN LOGIC
 # ==============================================================================
 
-# 1. TENTUKAN LOKASI KERJA ANDA DI SINI
+# 1. Root Folder Path
 root_folder_path = r"C:\Users\DELL\OneDrive\Work\Media Monitoring\1. ASSA\6. Juni"
 
-# 2. Siapkan "In-Tray" kosong
+# 2. Empty "In-Tray"
 all_dataframes = []
 
 print(f"Memulai Misi Pencarian di folder: '{root_folder_path}'")
@@ -153,27 +152,27 @@ for dirpath, dirnames, filenames in os.walk(root_folder_path):
             if daily_df is not None and not daily_df.empty:
                 all_dataframes.append(daily_df)
 
-# 4. Cek apakah ada data yang berhasil dikumpulkan
+# 4. Checking Data
 if all_dataframes:
     print("\nSemua file telah diproses. Menggabungkan data...")
     master_df = pd.concat(all_dataframes, ignore_index=True)
 
     master_df['Date'] = pd.to_datetime(master_df['Date'], errors='coerce').dt.date
     
-    # 5. Tentukan nama dan lokasi file Excel hasil akhir
+    # 5. Decide names and location of final excel file 
     output_filename = os.path.basename(root_folder_path) + "_Compiled_Report.xlsx"
     excel_output_path = os.path.join(root_folder_path, output_filename)
     
-    # 6. Proses Penyimpanan dengan format final
+    # 6. Saving Process
     with pd.ExcelWriter(excel_output_path, engine='xlsxwriter') as writer:
         workbook = writer.book
         
-        # --- PERBAIKAN DI SINI: Tambahkan instruksi alignment ---
+        # --- ---
         header_format = workbook.add_format({
             'bold': True,
             'text_wrap': True,
-            'align': 'center',      # Rata tengah horizontal
-            'valign': 'vcenter',    # Rata tengah vertikal
+            'align': 'center',      
+            'valign': 'vcenter',    
             'fg_color': '#FFFF00',
             'border': 1
         })
@@ -230,4 +229,5 @@ if all_dataframes:
 
     print(f"\n(SELESAI) Laporan bulanan berhasil dibuat di: '{excel_output_path}'")
 else:
+
     print("\n(Peringatan) Tidak ada data yang berhasil diekstrak dari semua file Word yang ditemukan.")
