@@ -20,4 +20,5 @@ This is a Python script to automatically compile monthly media monitoring report
 
 ## Acknowledgements
 
-This script was developed by Hizkia Gerald Garibaldi with help and guidance from Google's AI assistant, Gemini.
+This script was developed by myself with help and guidance from Google's AI assistant, Gemini.
+
